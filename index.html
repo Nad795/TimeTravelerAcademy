@@ -9,44 +9,44 @@
 <body>
 
 <!-- ========== SCREEN: MAIN MENU ========== -->
-<div id="screen-menu" class="screen active">
+<div id="screen-menu" class="screen active" role="main">
   <div class="menu-bg">
-    <div class="stars" id="stars"></div>
+    <div class="stars" id="stars" aria-hidden="true"></div>
     <div class="menu-content">
-      <div class="academy-badge">🏛️</div>
+      <div class="academy-badge" aria-hidden="true">🏛️</div>
       <h1 class="title-main">TIME TRAVELER<br><span class="title-sub">ACADEMY</span></h1>
       <p class="title-tagline">Lost Indonesian History</p>
-      <div class="menu-buttons">
+      <nav class="menu-buttons" aria-label="Main menu">
         <button class="btn btn-primary" id="btn-new-game">🚀 Start New Journey</button>
-        <button class="btn btn-secondary" id="btn-continue" disabled>⏳ Continue Journey</button>
+        <button class="btn btn-secondary" id="btn-continue" disabled aria-disabled="true">⏳ Continue Journey</button>
         <button class="btn btn-danger" id="btn-reset">🗑️ Reset Progress</button>
-      </div>
+      </nav>
       <div class="menu-footer">
-        <p>A Time Traveler Academy Production | Educational Adventure Game</p>
+        <p>Time Traveler Academy &nbsp;·&nbsp; Educational Adventure Game</p>
       </div>
     </div>
   </div>
 </div>
 
 <!-- ========== SCREEN: STORY INTRO ========== -->
-<div id="screen-intro" class="screen">
+<div id="screen-intro" class="screen" role="main">
   <div class="intro-container">
     <div class="intro-header">
       <div class="year-badge">YEAR 2500</div>
     </div>
     <div class="intro-scene">
-      <div class="intro-icon">🕐</div>
-      <div class="intro-dialogue" id="intro-dialogue">
+      <div class="intro-icon" aria-hidden="true">🕐</div>
+      <div class="intro-dialogue" aria-live="polite">
         <div class="speaker-name" id="intro-speaker">Academy Director</div>
         <p id="intro-text"></p>
       </div>
     </div>
     <div class="intro-controls">
-      <div class="dialogue-dots" id="dialogue-dots">
-        <span class="dot active" data-idx="0"></span>
-        <span class="dot" data-idx="1"></span>
-        <span class="dot" data-idx="2"></span>
-        <span class="dot" data-idx="3"></span>
+      <div class="dialogue-dots" id="dialogue-dots" role="tablist" aria-label="Dialogue progress">
+        <button class="dot active" data-idx="0" role="tab" aria-selected="true" aria-label="Dialogue 1"></button>
+        <button class="dot" data-idx="1" role="tab" aria-selected="false" aria-label="Dialogue 2"></button>
+        <button class="dot" data-idx="2" role="tab" aria-selected="false" aria-label="Dialogue 3"></button>
+        <button class="dot" data-idx="3" role="tab" aria-selected="false" aria-label="Dialogue 4"></button>
       </div>
       <button class="btn btn-primary" id="btn-intro-next">Next →</button>
     </div>
@@ -54,16 +54,16 @@
 </div>
 
 <!-- ========== SCREEN: ERA SELECTION ========== -->
-<div id="screen-era-select" class="screen">
+<div id="screen-era-select" class="screen" role="main">
   <div class="era-select-container">
     <div class="section-header">
       <h2>🗺️ Choose Your Era</h2>
       <p>Select a corrupted era to restore the timeline</p>
     </div>
-    <div class="era-cards" id="era-cards">
+    <div class="era-cards" id="era-cards" role="list">
       <!-- Populated by JS -->
     </div>
-    <div class="score-panel">
+    <div class="score-panel" aria-live="polite">
       <span>⭐ Score: <strong id="score-display-era">0</strong></span>
       <span>📖 Progress: <strong id="progress-display-era">0%</strong></span>
     </div>
@@ -71,133 +71,135 @@
 </div>
 
 <!-- ========== SCREEN: EXPLORATION ========== -->
-<div id="screen-explore" class="screen">
+<div id="screen-explore" class="screen" role="main">
   <div class="game-ui">
-    <div class="game-topbar">
-      <button class="btn-icon" id="btn-back-era">← Era Map</button>
+    <header class="game-topbar">
+      <button class="btn-icon" id="btn-back-era" aria-label="Return to Era Map">← Era Map</button>
       <div class="topbar-title" id="explore-era-name">Era Name</div>
-      <div class="topbar-score">⭐ <span id="explore-score">0</span></div>
-    </div>
+      <div class="topbar-score" aria-live="polite" aria-label="Current score">⭐ <span id="explore-score">0</span></div>
+    </header>
     <div class="game-main explore-layout">
       <div class="scene-area" id="scene-area">
         <div class="scene-bg" id="scene-bg">
           <div class="scene-description" id="scene-description"></div>
-          <div class="scene-objects" id="scene-objects">
+          <div class="scene-objects" id="scene-objects" role="list" aria-label="Objects to investigate">
             <!-- Objects populated by JS -->
           </div>
-          <div class="scene-npcs" id="scene-npcs">
+          <div class="scene-npcs" id="scene-npcs" aria-label="People to talk to">
             <!-- NPCs populated by JS -->
           </div>
         </div>
       </div>
-      <div class="sidebar">
+      <aside class="sidebar" aria-label="Notebook">
         <div class="notebook">
           <h3>📓 Notebook</h3>
-          <p class="notebook-hint">Click on objects in the scene to discover historical facts!</p>
-          <div class="facts-list" id="facts-list">
+          <p class="notebook-hint">Click glowing objects in the scene to discover historical facts!</p>
+          <div class="facts-list" id="facts-list" aria-live="polite">
             <div class="fact-slot empty" id="fact-slot-0">
-              <span class="fact-num">1</span>
+              <span class="fact-num" aria-hidden="true">1</span>
               <span class="fact-text">— undiscovered —</span>
             </div>
             <div class="fact-slot empty" id="fact-slot-1">
-              <span class="fact-num">2</span>
+              <span class="fact-num" aria-hidden="true">2</span>
               <span class="fact-text">— undiscovered —</span>
             </div>
             <div class="fact-slot empty" id="fact-slot-2">
-              <span class="fact-num">3</span>
+              <span class="fact-num" aria-hidden="true">3</span>
               <span class="fact-text">— undiscovered —</span>
             </div>
           </div>
           <div class="facts-progress">
-            <div class="progress-bar">
+            <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" id="facts-progress-bar" aria-valuenow="0">
               <div class="progress-fill" id="facts-progress-fill" style="width:0%"></div>
             </div>
             <span id="facts-progress-text">0 / 3 facts</span>
           </div>
         </div>
-        <button class="btn btn-primary" id="btn-proceed-timeline" disabled>
+        <button class="btn btn-primary" id="btn-proceed-timeline" disabled aria-disabled="true">
           📅 Arrange Timeline →
         </button>
-      </div>
+      </aside>
     </div>
   </div>
+
   <!-- NPC Dialogue Popup -->
-  <div class="popup-overlay" id="npc-popup" style="display:none">
+  <div class="popup-overlay" id="npc-popup" role="dialog" aria-modal="true" aria-labelledby="popup-speaker-name" hidden>
     <div class="popup-box">
       <div class="popup-speaker" id="popup-speaker-name">NPC Name</div>
-      <div class="popup-icon" id="popup-npc-icon">👤</div>
-      <p id="popup-dialogue-text">Dialogue text</p>
+      <div class="popup-icon" id="popup-npc-icon" aria-hidden="true">👤</div>
+      <p id="popup-dialogue-text"></p>
       <button class="btn btn-primary" id="btn-close-popup">Got it! ✓</button>
     </div>
   </div>
-  <!-- Fact Popup -->
-  <div class="popup-overlay" id="fact-popup" style="display:none">
+
+  <!-- Fact Found Popup -->
+  <div class="popup-overlay" id="fact-popup" role="dialog" aria-modal="true" aria-labelledby="fact-popup-heading" hidden>
     <div class="popup-box fact-popup-box">
-      <div class="fact-popup-icon">📜</div>
-      <h3>Historical Fact Found!</h3>
-      <div class="fact-popup-content" id="fact-popup-content">
+      <div class="fact-popup-icon" aria-hidden="true">📜</div>
+      <h3 id="fact-popup-heading">Historical Fact Found!</h3>
+      <div class="fact-popup-content">
         <p id="fact-popup-text"></p>
       </div>
-      <div class="fact-popup-score">+10 points</div>
+      <div class="fact-popup-score" aria-live="polite">+10 points</div>
       <button class="btn btn-primary" id="btn-close-fact-popup">Add to Notebook ✓</button>
     </div>
   </div>
 </div>
 
 <!-- ========== SCREEN: TIMELINE PUZZLE ========== -->
-<div id="screen-timeline" class="screen">
+<div id="screen-timeline" class="screen" role="main">
   <div class="game-ui">
-    <div class="game-topbar">
-      <button class="btn-icon" id="btn-back-explore">← Explore</button>
+    <header class="game-topbar">
+      <button class="btn-icon" id="btn-back-explore" aria-label="Return to Exploration">← Explore</button>
       <div class="topbar-title">Timeline Puzzle</div>
-      <div class="topbar-score">⭐ <span id="timeline-score">0</span></div>
-    </div>
+      <div class="topbar-score" aria-live="polite" aria-label="Current score">⭐ <span id="timeline-score">0</span></div>
+    </header>
     <div class="timeline-container">
       <div class="timeline-header">
         <h2 id="timeline-era-title">Era Timeline</h2>
         <p>Drag the event cards into the correct chronological order!</p>
       </div>
-      <div class="timeline-instructions">
-        <div class="instruction-badge">
-          <span>🖱️</span>
-          <span>Drag & Drop</span>
+      <div class="timeline-instructions" aria-label="Instructions">
+        <div class="instruction-badge"><span aria-hidden="true">🖱️</span><span>Drag &amp; Drop</span></div>
+        <div class="instruction-badge"><span aria-hidden="true">📅</span><span>Earliest → Latest</span></div>
+        <div class="instruction-badge"><span aria-hidden="true">⭐</span><span>+20 per correct slot</span></div>
+      </div>
+
+      <!-- Slot groups: label + drop zone paired for correct mobile alignment -->
+      <div class="timeline-grid" id="timeline-grid">
+        <div class="timeline-slot-group">
+          <div class="slot-label">1st <span class="slot-sublabel">(Earliest)</span></div>
+          <div class="drop-zone" data-slot="0" id="drop-zone-0" role="region" aria-label="Slot 1 — earliest event">
+            <span class="drop-placeholder" aria-hidden="true">Drop here</span>
+          </div>
         </div>
-        <div class="instruction-badge">
-          <span>📅</span>
-          <span>Earliest → Latest</span>
+        <div class="timeline-slot-group">
+          <div class="slot-label">2nd</div>
+          <div class="drop-zone" data-slot="1" id="drop-zone-1" role="region" aria-label="Slot 2">
+            <span class="drop-placeholder" aria-hidden="true">Drop here</span>
+          </div>
         </div>
-        <div class="instruction-badge">
-          <span>⭐</span>
-          <span>+20 per correct position</span>
+        <div class="timeline-slot-group">
+          <div class="slot-label">3rd</div>
+          <div class="drop-zone" data-slot="2" id="drop-zone-2" role="region" aria-label="Slot 3">
+            <span class="drop-placeholder" aria-hidden="true">Drop here</span>
+          </div>
+        </div>
+        <div class="timeline-slot-group">
+          <div class="slot-label">4th <span class="slot-sublabel">(Latest)</span></div>
+          <div class="drop-zone" data-slot="3" id="drop-zone-3" role="region" aria-label="Slot 4 — latest event">
+            <span class="drop-placeholder" aria-hidden="true">Drop here</span>
+          </div>
         </div>
       </div>
-      <div class="timeline-slots" id="timeline-slots">
-        <div class="slot-label">1st (Earliest)</div>
-        <div class="slot-label">2nd</div>
-        <div class="slot-label">3rd</div>
-        <div class="slot-label">4th (Latest)</div>
-      </div>
-      <div class="timeline-drop-zones" id="timeline-drop-zones">
-        <div class="drop-zone" data-slot="0" id="drop-zone-0">
-          <span class="drop-placeholder">Drop here</span>
-        </div>
-        <div class="drop-zone" data-slot="1" id="drop-zone-1">
-          <span class="drop-placeholder">Drop here</span>
-        </div>
-        <div class="drop-zone" data-slot="2" id="drop-zone-2">
-          <span class="drop-placeholder">Drop here</span>
-        </div>
-        <div class="drop-zone" data-slot="3" id="drop-zone-3">
-          <span class="drop-placeholder">Drop here</span>
-        </div>
-      </div>
+
       <div class="timeline-cards-area">
         <h3>Event Cards — arrange these:</h3>
-        <div class="timeline-cards" id="timeline-cards">
+        <div class="timeline-cards" id="timeline-cards" role="list" aria-label="Event cards to arrange">
           <!-- Cards populated by JS -->
         </div>
       </div>
-      <div class="timeline-feedback" id="timeline-feedback" style="display:none">
+      <div class="timeline-feedback" id="timeline-feedback" hidden>
         <p id="timeline-feedback-text"></p>
       </div>
       <div class="timeline-actions">
@@ -209,55 +211,52 @@
 </div>
 
 <!-- ========== SCREEN: QUIZ ========== -->
-<div id="screen-quiz" class="screen">
+<div id="screen-quiz" class="screen" role="main">
   <div class="game-ui">
-    <div class="game-topbar">
-      <div class="topbar-back-placeholder"></div>
+    <header class="game-topbar">
+      <div class="topbar-spacer" aria-hidden="true"></div>
       <div class="topbar-title">Knowledge Challenge</div>
-      <div class="topbar-score">⭐ <span id="quiz-score">0</span></div>
-    </div>
+      <div class="topbar-score" aria-live="polite" aria-label="Current score">⭐ <span id="quiz-score">0</span></div>
+    </header>
     <div class="quiz-container">
       <div class="quiz-header">
         <h2 id="quiz-era-title">Era Quiz</h2>
-        <div class="quiz-progress-dots" id="quiz-progress-dots">
-          <span class="q-dot active" data-q="0">1</span>
-          <span class="q-dot" data-q="1">2</span>
-          <span class="q-dot" data-q="2">3</span>
+        <div class="quiz-progress-dots" id="quiz-progress-dots" role="tablist" aria-label="Question progress">
+          <span class="q-dot active" data-q="0" role="tab" aria-label="Question 1">1</span>
+          <span class="q-dot" data-q="1" role="tab" aria-label="Question 2">2</span>
+          <span class="q-dot" data-q="2" role="tab" aria-label="Question 3">3</span>
         </div>
       </div>
-      <div class="quiz-card">
+      <div class="quiz-card" id="quiz-card">
         <div class="question-number" id="question-number">Question 1 of 3</div>
-        <div class="question-icon" id="question-icon">❓</div>
+        <div class="question-icon" id="question-icon" aria-hidden="true">❓</div>
         <h3 class="question-text" id="question-text">Question text</h3>
-        <div class="answer-options" id="answer-options">
+        <div class="answer-options" id="answer-options" role="group" aria-label="Answer choices">
           <!-- Options populated by JS -->
         </div>
-        <div class="quiz-feedback" id="quiz-feedback" style="display:none">
-          <span class="feedback-icon" id="feedback-icon">✓</span>
-          <p id="feedback-text"></p>
-          <p class="feedback-explanation" id="feedback-explanation"></p>
+        <div class="quiz-feedback" id="quiz-feedback" aria-live="polite">
+          <!-- feedback populated by JS -->
         </div>
       </div>
-      <button class="btn btn-primary" id="btn-quiz-next" style="display:none">Next Question →</button>
+      <button class="btn btn-primary quiz-next-btn" id="btn-quiz-next" hidden>Next Question →</button>
     </div>
   </div>
 </div>
 
 <!-- ========== SCREEN: RESTORE TIMELINE ========== -->
-<div id="screen-restore" class="screen">
+<div id="screen-restore" class="screen" role="main">
   <div class="restore-container">
-    <div class="portal-area">
+    <div class="portal-area" aria-hidden="true">
       <div class="portal-ring" id="portal-ring">
         <div class="portal-inner">
           <div class="portal-icon" id="portal-icon">⏳</div>
         </div>
       </div>
-      <div class="restore-sparks" id="restore-sparks"></div>
     </div>
     <div class="restore-content">
       <h2 id="restore-title">Timeline Restored!</h2>
       <p id="restore-description">The historical timeline for this era has been successfully restored.</p>
-      <div class="restore-score-earned">
+      <div class="restore-score-earned" aria-live="polite">
         <div class="score-box">
           <span class="score-label">Era Score</span>
           <span class="score-value" id="restore-era-score">0</span>
@@ -267,8 +266,8 @@
           <span class="score-value" id="restore-total-score">0</span>
         </div>
       </div>
-      <div class="era-summary" id="era-summary">
-        <!-- Facts recap -->
+      <div class="era-summary" id="era-summary" aria-label="Facts recovered this era">
+        <!-- Facts recap populated by JS -->
       </div>
       <button class="btn btn-primary" id="btn-restore-continue">
         Continue Mission →
@@ -278,34 +277,49 @@
 </div>
 
 <!-- ========== SCREEN: VICTORY ========== -->
-<div id="screen-victory" class="screen">
+<div id="screen-victory" class="screen" role="main">
   <div class="victory-bg">
-    <div class="confetti-area" id="confetti-area"></div>
+    <div class="confetti-area" id="confetti-area" aria-hidden="true"></div>
     <div class="victory-content">
-      <div class="trophy-icon">🏆</div>
+      <div class="trophy-icon" aria-hidden="true">🏆</div>
       <h1>Mission Complete!</h1>
       <h2>Indonesia's History is Restored!</h2>
       <p class="victory-text">
-        Congratulations, Time Traveler! You have successfully restored all three eras of Indonesian history and saved the timeline!
+        Congratulations, Time Traveler! You have successfully restored all three eras of
+        Indonesian history and saved the timeline!
       </p>
       <div class="final-score-card">
         <div class="final-score-label">Final Score</div>
-        <div class="final-score-value" id="final-score">0</div>
-        <div class="final-score-grade" id="final-grade">⭐⭐⭐</div>
+        <div class="final-score-value" id="final-score" aria-live="polite">0</div>
+        <div class="final-score-grade" id="final-grade" aria-label="Star rating">⭐⭐⭐</div>
       </div>
-      <div class="victory-eras" id="victory-eras"></div>
+      <div class="victory-eras" id="victory-eras" aria-label="Completed eras"></div>
       <div class="victory-buttons">
         <button class="btn btn-primary" id="btn-play-again">🚀 Play Again</button>
         <button class="btn btn-secondary" id="btn-view-history">📖 View All Facts</button>
       </div>
     </div>
   </div>
+
   <!-- History Encyclopedia Modal -->
-  <div class="popup-overlay" id="encyclopedia-popup" style="display:none">
+  <div class="popup-overlay" id="encyclopedia-popup" role="dialog" aria-modal="true" aria-labelledby="encyclopedia-title" hidden>
     <div class="popup-box encyclopedia-box">
-      <h2>📚 Indonesian History Encyclopedia</h2>
+      <h2 id="encyclopedia-title">📚 Indonesian History Encyclopedia</h2>
       <div id="encyclopedia-content"></div>
       <button class="btn btn-secondary" id="btn-close-encyclopedia">Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- ========== GLOBAL: CUSTOM CONFIRM MODAL ========== -->
+<div class="popup-overlay" id="modal-confirm" role="alertdialog" aria-modal="true" aria-labelledby="modal-confirm-title" hidden>
+  <div class="popup-box confirm-box">
+    <div class="confirm-icon" aria-hidden="true">⚠️</div>
+    <h3 id="modal-confirm-title">Are you sure?</h3>
+    <p id="modal-confirm-text"></p>
+    <div class="confirm-actions">
+      <button class="btn btn-secondary" id="btn-modal-no">Cancel</button>
+      <button class="btn btn-danger-solid" id="btn-modal-yes">Yes, Reset</button>
     </div>
   </div>
 </div>
